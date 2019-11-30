@@ -1,0 +1,16 @@
+PODS:
+  - viper-base (2.1.1)
+
+DEPENDENCIES:
+  - viper-base
+
+SPEC REPOS:
+  trunk:
+    - viper-base
+
+SPEC CHECKSUMS:
+  viper-base: 5fc1ffb5b4ccb561801bb68ca34e07b0d5b64788
+
+PODFILE CHECKSUM: e6b7e929a7ea3622ca946dcab9b9ad8d7cff6b9f
+
+COCOAPODS: 1.8.4

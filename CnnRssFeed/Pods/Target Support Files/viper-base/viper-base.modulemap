@@ -1,0 +1,6 @@
+framework module VIPERBase {
+  umbrella header "viper-base-umbrella.h"
+
+  export *
+  module * { export * }
+}
