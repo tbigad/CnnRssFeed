@@ -18,4 +18,9 @@ final class ChannelsRouter: VIPERRouter {
 // MARK: - ChannelsRouterProtocol
 
 extension ChannelsRouter: ChannelsRouterProtocol {
+    func goToNewsFeed(withChannelUrl: String, name: String) {
+        let module = NewsFeedBuilder.build(withChannelUrl: withChannelUrl, name: name)
+        let window = UIApplication.shared.windows.first
+        window?.rootViewController = module.attachToNavigationController()
+    }    
 }

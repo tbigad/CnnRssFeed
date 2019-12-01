@@ -50,7 +50,8 @@ extension ChannelsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        presenter.didTappedCell(url: self.channelesArray[indexPath.row].url)
+        let item = self.channelesArray[indexPath.row]
+        presenter.didTappedCell(url: item.url, name: item.name)
     }
 }
 

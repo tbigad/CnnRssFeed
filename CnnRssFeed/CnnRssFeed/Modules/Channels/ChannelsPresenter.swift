@@ -24,8 +24,8 @@ extension ChannelsPresenter: ChannelsViewControllerOutputProtocol {
         interactor.requestUpdate()
     }
     
-    func didTappedCell(url: String) {
-        router.goToNewsFeed(withChannelUrl: url)
+    func didTappedCell(url: String, name: String) {
+        router.goToNewsFeed(withChannelUrl: url, name: name)
     }
     
 }

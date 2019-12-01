@@ -18,7 +18,7 @@ protocol ChannelsViewControllerProtocol: class {
 
 protocol ChannelsViewControllerOutputProtocol: class {
     func requestUpdate()
-    func didTappedCell(url:String)
+    func didTappedCell(url:String, name:String)
 }
 
 // MARK: - Interactor Contract
@@ -36,5 +36,5 @@ protocol ChannelsInteractorOutputProtocol: class {
 // MARK: - Router Contract
 
 protocol ChannelsRouterProtocol: class {
-    func goToNewsFeed(withChannelUrl:String)
+    func goToNewsFeed(withChannelUrl:String, name: String)
 }
