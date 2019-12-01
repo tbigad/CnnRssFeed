@@ -12,16 +12,17 @@ import UIKit
 class ChannelsView: BaseView {
     let tableView:UITableView = UITableView()
     override func addSubviews() {
-        backgroundColor = UIColor.clear
+        backgroundColor = UIColor.white
         addSubview(tableView)
     }
 
     override func setupLayout() {
         tableView.autoresizingMask = [.flexibleWidth,.flexibleHeight]
+        tableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate(
-        [tableView.topAnchor.constraint(equalToSystemSpacingBelow: topAnchor, multiplier: 0),
-        tableView.leadingAnchor.constraint(equalToSystemSpacingAfter: leadingAnchor, multiplier: 0),
-        tableView.trailingAnchor.constraint(equalToSystemSpacingAfter: trailingAnchor, multiplier: 0),
-        tableView.bottomAnchor.constraint(equalToSystemSpacingBelow: bottomAnchor, multiplier: 0)])
+        [tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+        tableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+        tableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
+        tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)])
     }
 }

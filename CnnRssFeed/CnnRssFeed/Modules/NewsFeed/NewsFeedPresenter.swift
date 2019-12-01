@@ -21,6 +21,11 @@ final class NewsFeedPresenter: VIPERPresenter {
 // MARK: - NewsFeedViewOutputProtocol
 
 extension NewsFeedPresenter: NewsFeedViewOutputProtocol {
+    
+    func didTappedCloseButton() {
+        router.backToMain()
+    }
+    
     func requestTitle() {
         view.titleReady(title: self.title)
     }

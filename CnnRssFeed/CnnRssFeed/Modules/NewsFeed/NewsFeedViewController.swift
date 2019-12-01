@@ -14,6 +14,12 @@ final class NewsFeedViewController: BaseViewController<NewsFeedView>, VIPERView 
     var presenter: NewsFeedViewOutputProtocol!
     override func viewDidLoad() {
         presenter.requestTitle()
+        let customView = view as! NewsFeedView
+        customView.closeButton.addTarget(self, action: #selector(closeButtonDidTapped), for: .touchUpInside)
+    }
+    
+    @objc func closeButtonDidTapped() {
+        presenter.didTappedCloseButton()
     }
 }
 
