@@ -26,6 +26,9 @@ class NewsFeedTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addSubview(newsImage)
         addSubview(newsTitle)
+        
+        newsTitle.adjustsFontSizeToFitWidth = true
+        newsTitle.numberOfLines = 0
     }
     
     required init?(coder: NSCoder) {
@@ -35,9 +38,9 @@ class NewsFeedTableViewCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         let targetSize = self.bounds.size
-        newsImage.frame = CGRect(origin: CGPoint(x: targetSize.width - targetSize.height - 15, y: 0)
+        newsImage.frame = CGRect(origin: CGPoint(x: targetSize.width - targetSize.height - 16, y: 0)
             , size: CGSize(width: targetSize.height, height: targetSize.height))
         newsTitle.frame = CGRect(origin: CGPoint(x: 8, y: 0)
-        , size: CGSize(width: targetSize.width - targetSize.height, height: targetSize.height))        
+        , size: CGSize(width: targetSize.width - targetSize.height - 16, height: targetSize.height))
     }
 }

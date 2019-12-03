@@ -13,7 +13,7 @@ struct NewsFeedItem {
     let description:String
     let link:String
     let pubDate:String
-    let media:[[String : String]]
+    let media:[String]
 }
 
 typealias NewsModel = [NewsFeedItem]

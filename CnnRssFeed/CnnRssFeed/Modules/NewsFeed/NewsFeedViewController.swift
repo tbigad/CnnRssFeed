@@ -61,10 +61,10 @@ extension NewsFeedViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: NewsFeedTableViewCell.identifier, for: indexPath) as! NewsFeedTableViewCell
-        cell.newsTitle.text = newsModel[indexPath.row].title
+        let item = newsModel[indexPath.row]
+        cell.newsTitle.text = item.title
         cell.newsImage.image = UIImage(named: "close")
         cell.accessoryType = .disclosureIndicator
-        cell.setNeedsLayout()
         return cell
     }
     

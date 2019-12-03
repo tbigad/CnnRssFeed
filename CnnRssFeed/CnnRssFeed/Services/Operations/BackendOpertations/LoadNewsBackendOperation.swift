@@ -19,7 +19,7 @@ struct TempNewsItem {
     var description:String = String()
     var link:String = String()
     var pubDate:String = String()
-    var media:[[String : String]] = [[:]]
+    var media:[String] = []
 }
 
 class LoadNewsBackendOperation:BaseBackendOperation {    
@@ -73,13 +73,19 @@ extension LoadNewsBackendOperation:XMLParserDelegate {
             self.tempNewsItem = TempNewsItem()
         }
         if elementName == "media:content"{
-            tempNewsItem?.media.append(attributeDict)
+            guard let value = attributeDict["url"] else { return }
+            tempNewsItem?.media.append(value)
         }
     }
     
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         if elementName == "link" {
             tempNewsItem?.link = currentCharacter
+        }
+        if elementName == "title" {
+            if !currentCharacter.isEmpty {
+                tempNewsItem?.title = currentCharacter
+            }
         }
         if elementName == "description" {
             tempNewsItem?.description = currentCharacter
@@ -97,12 +103,16 @@ extension LoadNewsBackendOperation:XMLParserDelegate {
     }
     
     func parser(_ parser: XMLParser, foundCharacters string: String) {
-        currentCharacter += String(string)
+        if(string == "\n")
+        {
+            return
+        }
+        currentCharacter += string
     }
     
     func parser(_ parser: XMLParser, foundCDATA CDATABlock: Data) {
         if tempNewsItem != nil{
-            tempNewsItem?.title = String(data: CDATABlock, encoding: .utf8)!
+            currentCharacter = String(data: CDATABlock, encoding: .utf8)!
         }
     }
     
