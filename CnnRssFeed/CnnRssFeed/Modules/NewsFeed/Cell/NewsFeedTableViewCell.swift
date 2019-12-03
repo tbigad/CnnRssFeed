@@ -29,6 +29,8 @@ class NewsFeedTableViewCell: UITableViewCell {
         
         newsTitle.adjustsFontSizeToFitWidth = true
         newsTitle.numberOfLines = 0
+        newsImage.contentMode = .scaleAspectFit
+        newsImage.layer.cornerRadius = 8
     }
     
     required init?(coder: NSCoder) {
@@ -41,6 +43,6 @@ class NewsFeedTableViewCell: UITableViewCell {
         newsImage.frame = CGRect(origin: CGPoint(x: targetSize.width - targetSize.height - 16, y: 0)
             , size: CGSize(width: targetSize.height, height: targetSize.height))
         newsTitle.frame = CGRect(origin: CGPoint(x: 8, y: 0)
-        , size: CGSize(width: targetSize.width - targetSize.height - 16, height: targetSize.height))
+        , size: CGSize(width: targetSize.width - targetSize.height - 20, height: targetSize.height))
     }
 }
