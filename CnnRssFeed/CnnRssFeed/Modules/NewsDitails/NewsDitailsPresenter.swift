@@ -14,7 +14,7 @@ final class NewsDitailsPresenter: VIPERPresenter {
     weak var view: NewsDitailsViewProtocol!
     var interactor: NewsDitailsInteractorProtocol!
     var router: NewsDitailsRouterProtocol!
-
+    var newsItem:NewsFeedItem?
 }
 
 // MARK: - NewsDitailsViewOutputProtocol

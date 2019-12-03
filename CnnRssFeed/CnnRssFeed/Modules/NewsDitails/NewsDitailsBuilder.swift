@@ -16,5 +16,9 @@ final class NewsDitailsBuilder: VIPERBuilder<NewsDitailsViewController, NewsDita
 // MARK: - Builder custom methods
 
 extension NewsDitailsBuilder {
-    
+        static func build(withNewsItem item: NewsFeedItem) -> VIPERModule<NewsDitailsViewController, NewsDitailsPresenter, NewsDitailsInteractor, NewsDitailsRouter>  {
+        let module = build()
+        module.presenter.newsItem = item
+        return module
+    }
 }

@@ -25,6 +25,11 @@ final class NewsFeedViewController: BaseViewController<NewsFeedView>, VIPERView 
         tableView?.register(NewsFeedTableViewCell.self, forCellReuseIdentifier: NewsFeedTableViewCell.identifier)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        presenter.requestData()
+    }
+    
     @objc func closeButtonDidTapped() {
         self.dismiss(animated: true, completion: {
         })

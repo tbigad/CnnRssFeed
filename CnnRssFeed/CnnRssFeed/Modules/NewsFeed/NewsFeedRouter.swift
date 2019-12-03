@@ -19,13 +19,11 @@ final class NewsFeedRouter: VIPERRouter {
 
 extension NewsFeedRouter: NewsFeedRouterProtocol {
     func toNewsDitails(withItem: NewsFeedItem) {
-        
+        let module = NewsDitailsBuilder.build(withNewsItem: withItem)
+        pushModule(withView: module.view)
     }
     
     func backToMain() {
-        let module = ChannelsBuilder.build()
-        let window = UIApplication.shared.windows.first
-        window?.rootViewController = module.view
-        window?.makeKeyAndVisible()
+        viewController.dismiss(animated: true, completion: {})
     }
 }
