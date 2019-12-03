@@ -21,6 +21,9 @@ final class NewsFeedPresenter: VIPERPresenter {
 // MARK: - NewsFeedViewOutputProtocol
 
 extension NewsFeedPresenter: NewsFeedViewOutputProtocol {
+    func didTappedTibleItem(withItem: NewsFeedItem) {
+        router.toNewsDitails(withItem: withItem)
+    }
     
     func didTappedCloseButton() {
         router.backToMain()
@@ -36,8 +39,6 @@ extension NewsFeedPresenter: NewsFeedViewOutputProtocol {
         }
         interactor.requestNews(url: url)
     }
-    
-
 }
 
 // MARK: - NewsFeedInteractorOutputProtocol
@@ -50,6 +51,4 @@ extension NewsFeedPresenter: NewsFeedInteractorOutputProtocol {
     func newDataFail(str: String) {
         view.newDataFail(str: str)
     }
-    
-
 }

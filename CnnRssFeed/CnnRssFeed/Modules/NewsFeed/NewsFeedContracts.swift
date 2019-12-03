@@ -22,6 +22,7 @@ protocol NewsFeedViewOutputProtocol: class {
     func requestTitle()
     func requestData()
     func didTappedCloseButton()
+    func didTappedTibleItem(withItem:NewsFeedItem)
 }
 
 // MARK: - Interactor Contract
@@ -41,4 +42,5 @@ protocol NewsFeedInteractorOutputProtocol: class {
 
 protocol NewsFeedRouterProtocol: class {
     func backToMain()
+    func toNewsDitails(withItem:NewsFeedItem)
 }
