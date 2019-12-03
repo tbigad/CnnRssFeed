@@ -31,7 +31,10 @@ extension NewsFeedPresenter: NewsFeedViewOutputProtocol {
     }
     
     func requestData() {
-        
+        guard let url = channelUrl else {
+            return
+        }
+        interactor.requestNews(url: url)
     }
     
 
@@ -40,5 +43,13 @@ extension NewsFeedPresenter: NewsFeedViewOutputProtocol {
 // MARK: - NewsFeedInteractorOutputProtocol
 
 extension NewsFeedPresenter: NewsFeedInteractorOutputProtocol {
+    func newDataReady(data: NewsModel) {
+        view?.newDataReady(data: data)
+    }
+    
+    func newDataFail(str: String) {
+        view.newDataFail(str: str)
+    }
+    
 
 }

@@ -11,10 +11,16 @@ import UIKit
 class NewsFeedView: BaseView {
     lazy var closeButton:UIButton = UIButton()
     lazy var tableView:UITableView = UITableView()
+    
     override func setupLayout() {
         closeButton.setImage(UIImage(named: "close"), for: .normal)
-        tableView.translatesAutoresizingMaskIntoConstraints = true
         tableView.autoresizingMask = [.flexibleWidth,.flexibleHeight]
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate(
+        [tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+        tableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+        tableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
+        tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)])
     }
     
     override func addSubviews() {
@@ -25,7 +31,7 @@ class NewsFeedView: BaseView {
     override func layoutSubviews() {
         super.layoutSubviews()
         let buttonWidth = tableView.bounds.size.width/5
-        closeButton.frame = CGRect(x: 0, y: tableView.bounds.size.height - buttonWidth, width: buttonWidth, height: buttonWidth)
+        closeButton.frame = CGRect(x: 0, y: tableView.bounds.size.height, width: buttonWidth, height: buttonWidth)
     }
     
 }

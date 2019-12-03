@@ -45,7 +45,7 @@ extension ChannelsViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: ChannelsTableViewCell.identifier, for: indexPath)
         let data = channelesArray[indexPath.row]
         cell.textLabel?.text = data.name
-        cell.accessoryType = .detailButton
+        cell.accessoryType = .disclosureIndicator
         return cell
     }
     

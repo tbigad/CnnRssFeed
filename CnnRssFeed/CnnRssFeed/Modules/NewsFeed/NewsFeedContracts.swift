@@ -12,6 +12,8 @@ import Foundation
 
 protocol NewsFeedViewProtocol: class {
     func titleReady(title:String?)
+    func newDataReady(data:NewsModel)
+    func newDataFail(str:String)
 }
 
 // MARK: - View Output Contract
@@ -25,13 +27,14 @@ protocol NewsFeedViewOutputProtocol: class {
 // MARK: - Interactor Contract
 
 protocol NewsFeedInteractorProtocol: class {
-
+    func requestNews(url:String)
 }
 
 // MARK: - Interactor Output Contract
 
 protocol NewsFeedInteractorOutputProtocol: class {
-
+    func newDataReady(data:NewsModel)
+    func newDataFail(str:String)
 }
 
 // MARK: - Router Contract
