@@ -39,9 +39,10 @@ class NewsFeedTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        let targetSize = self.bounds.size
-        newsImage.frame = CGRect(origin: CGPoint(x: targetSize.width - targetSize.height - 16, y: 0)
-            , size: CGSize(width: targetSize.height, height: targetSize.height))
+        let targetSize = self.safeAreaLayoutGuide.layoutFrame
+        let imageWH = targetSize.height - 8
+        newsImage.frame = CGRect(origin: CGPoint(x: targetSize.width - targetSize.height - 8, y: self.safeAreaLayoutGuide.layoutFrame.midY - imageWH/2)
+            , size: CGSize(width:imageWH , height: imageWH))
         newsTitle.frame = CGRect(origin: CGPoint(x: 8, y: 0)
         , size: CGSize(width: targetSize.width - targetSize.height - 20, height: targetSize.height))
     }

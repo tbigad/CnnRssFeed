@@ -69,7 +69,7 @@ extension NewsFeedViewController: UITableViewDelegate, UITableViewDataSource {
         let item = newsModel[indexPath.row]
         cell.newsTitle.text = item.title
         
-        guard let str = item.media.first, let url = URL(string: str) else {
+        guard let str = item.getCubicMedia().first?.key, let url = URL(string: str) else {
             return cell
         }
         cell.newsImage.load(url: url)

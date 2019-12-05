@@ -20,7 +20,10 @@ final class NewsDitailsPresenter: VIPERPresenter {
 // MARK: - NewsDitailsViewOutputProtocol
 
 extension NewsDitailsPresenter: NewsDitailsViewOutputProtocol {
-
+    func requestData() {
+        guard let item = newsItem else { return }
+        view.dataReady(data: item)
+    }
 }
 
 // MARK: - NewsDitailsInteractorOutputProtocol

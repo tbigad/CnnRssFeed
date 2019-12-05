@@ -13,7 +13,17 @@ struct NewsFeedItem {
     let description:String
     let link:String
     let pubDate:String
-    let media:[String]
+    let media:[String:(Int,Int)]
+    
+    func getCubicMedia() -> [String:(Int,Int)] {
+        let ret = self.media.filter({ $0.value.0 == $0.value.1 })
+        if ret.isEmpty {
+            return media
+        } else
+        {
+            return ret
+        }
+    }
 }
 
 typealias NewsModel = [NewsFeedItem]

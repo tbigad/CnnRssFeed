@@ -11,13 +11,13 @@ import Foundation
 // MARK: - View Contract
 
 protocol NewsDitailsViewProtocol: class {
-
+    func dataReady(data:NewsFeedItem)
 }
 
 // MARK: - View Output Contract
 
 protocol NewsDitailsViewOutputProtocol: class {
-
+    func requestData()
 }
 
 // MARK: - Interactor Contract
