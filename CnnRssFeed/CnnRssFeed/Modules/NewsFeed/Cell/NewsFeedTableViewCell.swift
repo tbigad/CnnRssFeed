@@ -29,7 +29,7 @@ class NewsFeedTableViewCell: UITableViewCell {
         
         newsTitle.adjustsFontSizeToFitWidth = true
         newsTitle.numberOfLines = 0
-        newsImage.contentMode = .scaleAspectFit
+        newsImage.contentMode = .scaleToFill
         newsImage.layer.cornerRadius = 8
     }
     
@@ -38,6 +38,8 @@ class NewsFeedTableViewCell: UITableViewCell {
     }
     
     override func layoutSubviews() {
+        newsImage.layer.cornerRadius = 8.0
+        newsImage.clipsToBounds = true
         super.layoutSubviews()
         let targetSize = self.safeAreaLayoutGuide.layoutFrame
         let imageWH = targetSize.height - 8

@@ -9,21 +9,11 @@
 import UIKit
 
 class NewsDitailsView: BaseView {
-    
-    lazy var titleLabel = UILabel()
+    lazy var ditailsButton = UIButton(type: .system)
+    lazy var descriptionTextView = UITextView()
     lazy var dateLabel = UILabel()
-    lazy var textView = UITextView()
-    lazy var linkButton = UIButton()
-    lazy var stackView = UIStackView()
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        titleLabel.numberOfLines = 0
-    }
-    
-    required init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    lazy var titleLabel = UILabel()
+    lazy var stackView = UIStackView(arrangedSubviews: [titleLabel, dateLabel, descriptionTextView,ditailsButton])
     
     override func setupLayout() {
         if #available(iOS 13.0, *) {
@@ -31,39 +21,24 @@ class NewsDitailsView: BaseView {
         } else {
             backgroundColor = .white
         }
-        titleLabel.autoresizingMask = [.flexibleWidth,.flexibleHeight]
-        textView.autoresizingMask = [.flexibleWidth,.flexibleHeight]
-        linkButton.autoresizingMask = [.flexibleWidth,.flexibleHeight]
-        linkButton.autoresizingMask = [.flexibleWidth,.flexibleHeight]
+        titleLabel.numberOfLines = 0
+        titleLabel.textAlignment = .center
+        dateLabel.textAlignment = .left
+        descriptionTextView.isScrollEnabled = false
+        stackView.axis = .vertical
+        stackView.alignment = .center
         stackView.autoresizingMask = [.flexibleWidth,.flexibleHeight]
-        
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate(
         [stackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
         stackView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
         stackView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
         stackView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)])
-        
-//        titleLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 8).isActive = true
-//        titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 8).isActive = true
-//        titleLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: 8).isActive = true
-//        dateLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 8).isActive = true
-//        dateLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: 8).isActive = true
-//        dateLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: 8).isActive = true
-//        textView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 8).isActive = true
-//        textView.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 8).isActive = true
-//        textView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: 8).isActive = true
-//        linkButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 8).isActive = true
-//        linkButton.topAnchor.constraint(equalTo: textView.bottomAnchor, constant: 8).isActive = true
-//        linkButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: 8).isActive = true
-//        linkButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: 8).isActive = true
-        
     }
     
     override func addSubviews() {
+        ditailsButton.setTitle("Ditails", for: .normal)
         addSubview(stackView)
-        stackView.addSubview(titleLabel)
-        stackView.addSubview(dateLabel)
-        stackView.addSubview(textView)
-        stackView.addSubview(linkButton)
     }
+    
 }

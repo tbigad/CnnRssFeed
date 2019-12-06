@@ -19,16 +19,15 @@ final class NewsDitailsViewController: BaseViewController<NewsDitailsView>, VIPE
     }
 
     override func viewDidLoad() {
+        super.viewDidLoad()
         presenter.requestData()
     }
     
     func updateView() {
         let customView = view as? NewsDitailsView
-        customView?.dateLabel.text = newsItem?.pubDate
-        customView?.textView.text = newsItem?.description
         customView?.titleLabel.text = newsItem?.title
-        customView?.linkButton.titleLabel?.text = "Ditails"
-        customView?.setNeedsLayout()
+        customView?.dateLabel.text = newsItem?.pubDate
+        customView?.descriptionTextView.text = newsItem?.description
     }
 }
 
