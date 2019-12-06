@@ -31,8 +31,6 @@ final class NewsFeedViewController: BaseViewController<NewsFeedView>, VIPERView 
     }
     
     @objc func closeButtonDidTapped() {
-        self.dismiss(animated: true, completion: {
-        })
         self.presenter.didTappedCloseButton()
     }
 }

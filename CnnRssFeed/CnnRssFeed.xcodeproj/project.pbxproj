@@ -25,6 +25,7 @@
 		F350664D2396A82A00423C6B /* NewsDitailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35066472396A82A00423C6B /* NewsDitailsInteractor.swift */; };
 		F350664F2396A8BB00423C6B /* NewsDitailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F350664E2396A8BB00423C6B /* NewsDitailsViewController.swift */; };
 		F35066512396A91600423C6B /* NewsDitailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35066502396A91600423C6B /* NewsDitailsView.swift */; };
+		F352D06E239A692200DEC00A /* CGSizeExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = F352D06D239A692200DEC00A /* CGSizeExtention.swift */; };
 		F35FCD71238E9E1E00E0026B /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35FCD70238E9E1E00E0026B /* BaseView.swift */; };
 		F35FCD73238E9E9C00E0026B /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35FCD72238E9E9C00E0026B /* BaseViewController.swift */; };
 		F35FCD77238EA21000E0026B /* ChannelsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35FCD76238EA21000E0026B /* ChannelsView.swift */; };
@@ -69,6 +70,7 @@
 		F35066472396A82A00423C6B /* NewsDitailsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDitailsInteractor.swift; sourceTree = "<group>"; };
 		F350664E2396A8BB00423C6B /* NewsDitailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDitailsViewController.swift; sourceTree = "<group>"; };
 		F35066502396A91600423C6B /* NewsDitailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDitailsView.swift; sourceTree = "<group>"; };
+		F352D06D239A692200DEC00A /* CGSizeExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeExtention.swift; sourceTree = "<group>"; };
 		F35FCD70238E9E1E00E0026B /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		F35FCD72238E9E9C00E0026B /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		F35FCD76238EA21000E0026B /* ChannelsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsView.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				F31B5A3C239063AA00C626A1 /* UIViewControllerExtention.swift */,
 				F31B5A3F239063AA00C626A1 /* UITableViewCell.swift */,
 				F35066272396A01300423C6B /* UIImageView.swift */,
+				F352D06D239A692200DEC00A /* CGSizeExtention.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -438,6 +441,7 @@
 				F31B5A44239063AA00C626A1 /* UITableViewCell.swift in Sources */,
 				F35066482396A82A00423C6B /* NewsDitailsContracts.swift in Sources */,
 				F35FCD71238E9E1E00E0026B /* BaseView.swift in Sources */,
+				F352D06E239A692200DEC00A /* CGSizeExtention.swift in Sources */,
 				F35FCD77238EA21000E0026B /* ChannelsView.swift in Sources */,
 				F37630DA23914F7D00B704BA /* ChannelsInteractor.swift in Sources */,
 				F3B974902391BBDE00CA993F /* ChannelsModel.swift in Sources */,
