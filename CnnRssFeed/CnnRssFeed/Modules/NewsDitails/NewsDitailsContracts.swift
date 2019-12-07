@@ -12,24 +12,26 @@ import Foundation
 
 protocol NewsDitailsViewProtocol: class {
     func dataReady(data:NewsFeedItem)
+    func imageReady(imgData:Data)
 }
 
 // MARK: - View Output Contract
 
 protocol NewsDitailsViewOutputProtocol: class {
+    func requestImage(str:String)
     func requestData()
 }
 
 // MARK: - Interactor Contract
 
 protocol NewsDitailsInteractorProtocol: class {
-
+    func loadImage(urlString:String)
 }
 
 // MARK: - Interactor Output Contract
 
 protocol NewsDitailsInteractorOutputProtocol: class {
-
+    func imageLoaded(imgData:Data)
 }
 
 // MARK: - Router Contract

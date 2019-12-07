@@ -101,7 +101,7 @@ extension LoadNewsBackendOperation:XMLParserDelegate {
         }
         if elementName == "item" {
             guard let tempNewsItem = self.tempNewsItem else { return }
-            let readyItem = NewsFeedItem(title: tempNewsItem.title, description: tempNewsItem.description, link: tempNewsItem.link, pubDate: tempNewsItem.pubDate, media: tempNewsItem.media)
+            let readyItem = NewsFeedItem(title: tempNewsItem.title, description: tempNewsItem.description.htmlStripped, link: tempNewsItem.link, pubDate: tempNewsItem.pubDate, media: tempNewsItem.media)
             array.append(readyItem)
             self.tempNewsItem = nil
         }

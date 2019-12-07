@@ -15,14 +15,18 @@ struct NewsFeedItem {
     let pubDate:String
     let media:[String:(Int,Int)]
     
-    func getCubicMedia() -> [String:(Int,Int)] {
+    func getCubicMedia() -> (key:String,value:(Int,Int))? {
         let ret = self.media.filter({ $0.value.0 == $0.value.1 })
         if ret.isEmpty {
-            return media
+            return getSmallestMedia()
         } else
         {
-            return ret
+            return ret.min(by: { a,b in a.value.0 < b.value.0 })
         }
+    }
+    
+    func getSmallestMedia() -> (key:String,value:(Int,Int))?  {
+        return media.min(by: { a,b in a.value.0 < b.value.0 })
     }
 }
 

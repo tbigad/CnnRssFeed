@@ -18,5 +18,14 @@ final class NewsDitailsInteractor: VIPERInteractor {
 // MARK: - NewsDitailsInteractorProtocol
 
 extension NewsDitailsInteractor: NewsDitailsInteractorProtocol {
-
+    func loadImage(urlString: String) {
+        guard let url = URL(string: urlString) else {
+            return
+        }
+        let imageData = try? Data(contentsOf: url)
+        guard let data = imageData else {
+            return
+        }
+        presenter.imageLoaded(imgData: data)
+    }
 }

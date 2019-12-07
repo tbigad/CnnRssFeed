@@ -34,8 +34,27 @@ final class NewsDitailsViewController: BaseViewController<NewsDitailsView>, VIPE
 // MARK: - NewsDitailsViewProtocol
 
 extension NewsDitailsViewController: NewsDitailsViewProtocol {
+    func imageReady(imgData: Data) {
+        let image = UIImage(data: imgData)
+        guard let str = newsItem?.description else {
+            return
+        }
+        let fullString = NSMutableAttributedString(string: str)
+        let image1Attachment = NSTextAttachment()
+        image1Attachment.image = image
+        let image1String = NSAttributedString(attachment: image1Attachment)
+        fullString.append(image1String)
+        
+        let customView = view as? NewsDitailsView
+        customView?.descriptionTextView.attributedText = fullString
+    }
+    
     func dataReady(data: NewsFeedItem) {
         newsItem = data
         updateView()
+        guard let urlStr = newsItem?.getSmallestMedia()?.key else {
+            return
+        }
+        presenter.requestImage(str: urlStr)
     }
 }

@@ -20,6 +20,10 @@ final class NewsDitailsPresenter: VIPERPresenter {
 // MARK: - NewsDitailsViewOutputProtocol
 
 extension NewsDitailsPresenter: NewsDitailsViewOutputProtocol {
+    func requestImage(str: String) {
+        interactor.loadImage(urlString: str)
+    }
+    
     func requestData() {
         guard let item = newsItem else { return }
         view.dataReady(data: item)
@@ -29,5 +33,7 @@ extension NewsDitailsPresenter: NewsDitailsViewOutputProtocol {
 // MARK: - NewsDitailsInteractorOutputProtocol
 
 extension NewsDitailsPresenter: NewsDitailsInteractorOutputProtocol {
-
+    func imageLoaded(imgData: Data) {
+        view.imageReady(imgData: imgData)
+    }
 }
