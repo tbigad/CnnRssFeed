@@ -47,6 +47,7 @@
 		F3D053F9238D7194001CCB4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D053F8238D7194001CCB4B /* AppDelegate.swift */; };
 		F3D05402238D7196001CCB4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3D05401238D7196001CCB4B /* Assets.xcassets */; };
 		F3D05405238D7196001CCB4B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3D05403238D7196001CCB4B /* LaunchScreen.storyboard */; };
+		F3D40280239C15920072BB7C /* StringExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D4027F239C15910072BB7C /* StringExtention.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,6 +95,7 @@
 		F3D05401238D7196001CCB4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F3D05404238D7196001CCB4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F3D05406238D7196001CCB4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F3D4027F239C15910072BB7C /* StringExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtention.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 				F31B5A3F239063AA00C626A1 /* UITableViewCell.swift */,
 				F35066272396A01300423C6B /* UIImageView.swift */,
 				F352D06D239A692200DEC00A /* CGSizeExtention.swift */,
+				F3D4027F239C15910072BB7C /* StringExtention.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F37630D723914F7D00B704BA /* ChannelsRouter.swift in Sources */,
+				F3D40280239C15920072BB7C /* StringExtention.swift in Sources */,
 				F350664F2396A8BB00423C6B /* NewsDitailsViewController.swift in Sources */,
 				F31B5A41239063AA00C626A1 /* UIViewControllerExtention.swift in Sources */,
 				F350664D2396A82A00423C6B /* NewsDitailsInteractor.swift in Sources */,
