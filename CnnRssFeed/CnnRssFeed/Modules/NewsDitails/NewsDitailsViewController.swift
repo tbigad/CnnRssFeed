@@ -21,6 +21,8 @@ final class NewsDitailsViewController: BaseViewController<NewsDitailsView>, VIPE
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.requestData()
+        let customView = view as? NewsDitailsView
+        customView?.ditailsButton.addTarget(self, action: #selector(didTappedDitailsButton), for: .touchUpInside)
     }
     
     func updateView() {
@@ -28,6 +30,14 @@ final class NewsDitailsViewController: BaseViewController<NewsDitailsView>, VIPE
         customView?.titleLabel.text = newsItem?.title
         customView?.dateLabel.text = newsItem?.pubDate
         customView?.descriptionTextView.text = newsItem?.description
+        customView?.ditailsButton.isHidden = newsItem?.link == nil
+    }
+    
+    @objc func didTappedDitailsButton(){
+        guard let url = newsItem?.link else {
+            return
+        }
+        presenter.didTappedDitailsButton(url: url)
     }
 }
 
@@ -35,18 +45,24 @@ final class NewsDitailsViewController: BaseViewController<NewsDitailsView>, VIPE
 
 extension NewsDitailsViewController: NewsDitailsViewProtocol {
     func imageReady(imgData: Data) {
-        let image = UIImage(data: imgData)
-        guard let str = newsItem?.description else {
+        guard let str = newsItem?.description, let image = UIImage(data: imgData) else {
             return
         }
-        let fullString = NSMutableAttributedString(string: str)
-        let image1Attachment = NSTextAttachment()
-        image1Attachment.image = image
-        let image1String = NSAttributedString(attachment: image1Attachment)
-        fullString.append(image1String)
         
+        let imgSize = image.size
+        let maxWidth = UIScreen.main.bounds.width/2
+        let scaleFactor = maxWidth / imgSize.width
+        let newImageSize = CGSize(width: imgSize.width*scaleFactor, height: imgSize.height*scaleFactor)
+        let imageToAttach = image.resize(newSize: newImageSize)
         let customView = view as? NewsDitailsView
-        customView?.descriptionTextView.attributedText = fullString
+        let imageRect = CGRect(origin: CGPoint(x: 0, y: 0), size: imageToAttach.size)
+        
+        let imageFrame = UIBezierPath(rect: imageRect)
+        customView?.descriptionTextView.textContainer.exclusionPaths = [imageFrame]
+        customView?.descriptionTextView.text = str
+        customView?.imageView.image = imageToAttach
+        customView?.imageView.frame = imageRect
+        customView?.setNeedsLayout()
     }
     
     func dataReady(data: NewsFeedItem) {
@@ -55,6 +71,6 @@ extension NewsDitailsViewController: NewsDitailsViewProtocol {
         guard let urlStr = newsItem?.getSmallestMedia()?.key else {
             return
         }
-        presenter.requestImage(str: urlStr)
+        presenter.requestImage(url: urlStr)
     }
 }

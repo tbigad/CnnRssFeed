@@ -20,8 +20,12 @@ final class NewsDitailsPresenter: VIPERPresenter {
 // MARK: - NewsDitailsViewOutputProtocol
 
 extension NewsDitailsPresenter: NewsDitailsViewOutputProtocol {
-    func requestImage(str: String) {
-        interactor.loadImage(urlString: str)
+    func didTappedDitailsButton(url: String) {
+        router.openWebPage(urlStr: url)
+    }
+
+    func requestImage(url: String) {
+        interactor.loadImage(urlString: url)
     }
     
     func requestData() {

@@ -18,5 +18,9 @@ final class NewsDitailsRouter: VIPERRouter {
 // MARK: - NewsDitailsRouterProtocol
 
 extension NewsDitailsRouter: NewsDitailsRouterProtocol {
-
+    func openWebPage(urlStr: String) {
+        let vc = NewsWebViewBuilder.build(withUrl: urlStr)        
+        pushModule(withView: vc)
+        
+    }
 }

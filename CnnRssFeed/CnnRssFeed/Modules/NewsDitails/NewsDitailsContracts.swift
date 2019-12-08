@@ -18,8 +18,9 @@ protocol NewsDitailsViewProtocol: class {
 // MARK: - View Output Contract
 
 protocol NewsDitailsViewOutputProtocol: class {
-    func requestImage(str:String)
+    func requestImage(url:String)
     func requestData()
+    func didTappedDitailsButton(url:String)
 }
 
 // MARK: - Interactor Contract
@@ -37,5 +38,5 @@ protocol NewsDitailsInteractorOutputProtocol: class {
 // MARK: - Router Contract
 
 protocol NewsDitailsRouterProtocol: class {
-
+    func openWebPage(urlStr:String)
 }

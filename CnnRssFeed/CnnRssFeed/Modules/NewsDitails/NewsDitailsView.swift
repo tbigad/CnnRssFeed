@@ -14,6 +14,7 @@ class NewsDitailsView: BaseView {
     lazy var dateLabel = UILabel()
     lazy var titleLabel = UILabel()
     lazy var stackView = UIStackView(arrangedSubviews: [titleLabel, dateLabel, descriptionTextView,ditailsButton])
+    lazy var imageView = UIImageView()
     
     override func setupLayout() {
         if #available(iOS 13.0, *) {
@@ -47,5 +48,11 @@ class NewsDitailsView: BaseView {
     override func addSubviews() {
         ditailsButton.setTitle("Ditails", for: .normal)
         addSubview(stackView)
+        descriptionTextView.addSubview(imageView)
+    }
+    
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        
     }
 }
