@@ -13,16 +13,24 @@ final class NewsFeedViewController: BaseViewController<NewsFeedView>, VIPERView 
     var presenter: NewsFeedViewOutputProtocol!
     
     private var newsModel:NewsModel = []
-    weak private var tableView:UITableView?
+    weak private var tableView:UITableView!
+    weak private var closeButton:UIButton!
+    weak private var buttonConstraint:NSLayoutConstraint!
+    private var previousScrollOffset: CGFloat = 0.0
+    private let constraintMaximum: CGFloat = 0.0
+    private let constraintMinimum: CGFloat = 60.0
+    
     override func viewDidLoad() {
         presenter.requestTitle()
         presenter.requestData()
         let customView = view as! NewsFeedView
-        customView.closeButton.addTarget(self, action: #selector(closeButtonDidTapped), for: .touchUpInside)
+        closeButton = customView.closeButton
+        closeButton.addTarget(self, action: #selector(closeButtonDidTapped), for: .touchUpInside)
         tableView = customView.tableView
         tableView?.dataSource = self
         tableView?.delegate = self
         tableView?.register(NewsFeedTableViewCell.self, forCellReuseIdentifier: NewsFeedTableViewCell.identifier)
+        buttonConstraint = customView.buttonBottomAnchor
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -58,6 +66,27 @@ extension NewsFeedViewController: NewsFeedViewProtocol {
 }
 
 extension NewsFeedViewController: UITableViewDelegate, UITableViewDataSource {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y < 0 {
+            return
+        }
+        defer {
+            self.previousScrollOffset = scrollView.contentOffset.y
+        }
+        let scrollDiff = scrollView.contentOffset.y - self.previousScrollOffset
+        
+        
+        if scrollDiff > 0 {
+            if self.buttonConstraint.constant <= constraintMinimum{
+                self.buttonConstraint.constant += scrollDiff
+            }
+        } else {
+            if self.buttonConstraint.constant >= constraintMaximum  {
+                self.buttonConstraint.constant += scrollDiff
+            }
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return newsModel.count
     }

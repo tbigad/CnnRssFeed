@@ -9,7 +9,7 @@
 import UIKit
 
 class NewsFeedView: BaseView {
-    lazy var closeButton:UIButton = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+    lazy var closeButton:UIButton = UIButton(frame: CGRect(x: 0, y: 0, width: 75, height: 75))
     lazy var tableView:UITableView = UITableView()
     var buttonBottomAnchor:NSLayoutConstraint!
     
