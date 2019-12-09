@@ -215,6 +215,7 @@
 		F35FCD6C238E989F00E0026B /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				F3D05406238D7196001CCB4B /* Info.plist */,
 				F3D05403238D7196001CCB4B /* LaunchScreen.storyboard */,
 				F3D05401238D7196001CCB4B /* Assets.xcassets */,
 			);
@@ -316,7 +317,6 @@
 				F35FCD6C238E989F00E0026B /* SupportingFiles */,
 				F31B5A3B239063AA00C626A1 /* Extentions */,
 				F31B5A2823905C9D00C626A1 /* Services */,
-				F3D05406238D7196001CCB4B /* Info.plist */,
 			);
 			path = CnnRssFeed;
 			sourceTree = "<group>";
@@ -631,7 +631,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8C82H4XZR6;
-				INFOPLIST_FILE = CnnRssFeed/Info.plist;
+				INFOPLIST_FILE = CnnRssFeed/SupportingFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -651,7 +651,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8C82H4XZR6;
-				INFOPLIST_FILE = CnnRssFeed/Info.plist;
+				INFOPLIST_FILE = CnnRssFeed/SupportingFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
