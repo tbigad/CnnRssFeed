@@ -19,7 +19,7 @@ final class ChannelsInteractor: VIPERInteractor {
 
 extension ChannelsInteractor: ChannelsInteractorProtocol {
     func requestUpdate() {
-        let channels = ChanelModel.getChannels()
+        let channels = ChannelModel.getChannels()
         presenter.dataReady(channels: channels)
     }
 }
