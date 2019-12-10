@@ -19,7 +19,7 @@ final class NewsFeedRouter: VIPERRouter {
 
 extension NewsFeedRouter: NewsFeedRouterProtocol {
     func toNewsDitails(withItem: NewsFeedItem) {
-        let module = NewsDitailsBuilder.build(withNewsItem: withItem)
+        let module = NewsDetailsBuilder.build(withNewsItem: withItem)
         pushModule(withView: module.view)
     }
     

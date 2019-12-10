@@ -1,5 +1,5 @@
 //
-//  NewsDitailsView.swift
+//  NewsDetailsView.swift
 //  CnnRssFeed
 //
 //  Created by Pavel N on 12/3/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewsDitailsView: BaseView {
+class NewsDetailsView: BaseView {
     lazy var ditailsButton = UIButton(type: .system)
     lazy var descriptionTextView = UITextView()
     lazy var dateLabel = UILabel()
@@ -46,7 +46,7 @@ class NewsDitailsView: BaseView {
     }
     
     override func addSubviews() {
-        ditailsButton.setTitle("Ditails", for: .normal)
+        ditailsButton.setTitle("Details", for: .normal)
         addSubview(stackView)
         descriptionTextView.addSubview(imageView)
     }

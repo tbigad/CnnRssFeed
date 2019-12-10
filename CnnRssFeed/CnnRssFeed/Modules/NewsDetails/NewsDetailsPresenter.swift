@@ -1,5 +1,5 @@
 //
-//  NewsDitailsPresenter.swift
+//  NewsDetailsPresenter.swift
 //  CnnRssFeed
 //
 //  Created by Pavel N on 12/3/19.
@@ -9,17 +9,17 @@
 import Foundation
 import VIPERBase
 
-final class NewsDitailsPresenter: VIPERPresenter {
+final class NewsDetailsPresenter: VIPERPresenter {
 
-    weak var view: NewsDitailsViewProtocol!
-    var interactor: NewsDitailsInteractorProtocol!
-    var router: NewsDitailsRouterProtocol!
+    weak var view: NewsDetailsViewProtocol!
+    var interactor: NewsDetailsInteractorProtocol!
+    var router: NewsDetailsRouterProtocol!
     var newsItem:NewsFeedItem?
 }
 
 // MARK: - NewsDitailsViewOutputProtocol
 
-extension NewsDitailsPresenter: NewsDitailsViewOutputProtocol {
+extension NewsDetailsPresenter: NewsDetailsViewOutputProtocol {
     func didTappedDitailsButton(url: String) {
         router.openWebPage(urlStr: url)
     }
@@ -36,7 +36,7 @@ extension NewsDitailsPresenter: NewsDitailsViewOutputProtocol {
 
 // MARK: - NewsDitailsInteractorOutputProtocol
 
-extension NewsDitailsPresenter: NewsDitailsInteractorOutputProtocol {
+extension NewsDetailsPresenter: NewsDetailsInteractorOutputProtocol {
     func imageLoaded(imgData: Data) {
         view.imageReady(imgData: imgData)
     }

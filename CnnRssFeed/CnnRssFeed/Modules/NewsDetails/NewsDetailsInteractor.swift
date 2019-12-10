@@ -1,5 +1,5 @@
 //
-//  NewsDitailsInteractor.swift
+//  NewsDetailsInteractor.swift
 //  CnnRssFeed
 //
 //  Created by Pavel N on 12/3/19.
@@ -9,15 +9,15 @@
 import Foundation
 import VIPERBase
 
-final class NewsDitailsInteractor: VIPERInteractor {
+final class NewsDetailsInteractor: VIPERInteractor {
 
-    weak var presenter: NewsDitailsInteractorOutputProtocol!
+    weak var presenter: NewsDetailsInteractorOutputProtocol!
 
 }
 
 // MARK: - NewsDitailsInteractorProtocol
 
-extension NewsDitailsInteractor: NewsDitailsInteractorProtocol {
+extension NewsDetailsInteractor: NewsDetailsInteractorProtocol {
     func loadImage(urlString: String) {
         guard let url = URL(string: urlString) else {
             return

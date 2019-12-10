@@ -1,5 +1,5 @@
 //
-//  NewsDitailsViewController.swift
+//  NewsDetailsViewController.swift
 //  CnnRssFeed
 //
 //  Created by Pavel N on 12/3/19.
@@ -9,9 +9,9 @@
 import UIKit
 import VIPERBase
 
-final class NewsDitailsViewController: BaseViewController<NewsDitailsView>, VIPERView {
+final class NewsDetailsViewController: BaseViewController<NewsDetailsView>, VIPERView {
 
-    var presenter: NewsDitailsViewOutputProtocol!
+    var presenter: NewsDetailsViewOutputProtocol!
     var newsItem:NewsFeedItem?
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -21,12 +21,12 @@ final class NewsDitailsViewController: BaseViewController<NewsDitailsView>, VIPE
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.requestData()
-        let customView = view as? NewsDitailsView
+        let customView = view as? NewsDetailsView
         customView?.ditailsButton.addTarget(self, action: #selector(didTappedDitailsButton), for: .touchUpInside)
     }
     
     func updateView() {
-        let customView = view as? NewsDitailsView
+        let customView = view as? NewsDetailsView
         customView?.titleLabel.text = newsItem?.title
         customView?.dateLabel.text = newsItem?.pubDate
         customView?.descriptionTextView.text = newsItem?.description
@@ -43,7 +43,7 @@ final class NewsDitailsViewController: BaseViewController<NewsDitailsView>, VIPE
 
 // MARK: - NewsDitailsViewProtocol
 
-extension NewsDitailsViewController: NewsDitailsViewProtocol {
+extension NewsDetailsViewController: NewsDetailsViewProtocol {
     func imageReady(imgData: Data) {
         guard let str = newsItem?.description, let image = UIImage(data: imgData) else {
             return
@@ -54,7 +54,7 @@ extension NewsDitailsViewController: NewsDitailsViewProtocol {
         let scaleFactor = maxWidth / imgSize.width
         let newImageSize = CGSize(width: imgSize.width*scaleFactor, height: imgSize.height*scaleFactor)
         let imageToAttach = image.resize(newSize: newImageSize)
-        let customView = view as? NewsDitailsView
+        let customView = view as? NewsDetailsView
         let imageRect = CGRect(origin: CGPoint(x: 0, y: 0), size: imageToAttach.size)
         
         let imageFrame = UIBezierPath(rect: imageRect)

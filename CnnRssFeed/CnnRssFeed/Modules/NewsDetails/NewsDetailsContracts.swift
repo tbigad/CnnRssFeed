@@ -1,5 +1,5 @@
 //
-//  NewsDitailsContracts.swift
+//  NewsDetailsContracts.swift
 //  CnnRssFeed
 //
 //  Created by Pavel N on 12/3/19.
@@ -10,14 +10,14 @@ import Foundation
 
 // MARK: - View Contract
 
-protocol NewsDitailsViewProtocol: class {
+protocol NewsDetailsViewProtocol: class {
     func dataReady(data:NewsFeedItem)
     func imageReady(imgData:Data)
 }
 
 // MARK: - View Output Contract
 
-protocol NewsDitailsViewOutputProtocol: class {
+protocol NewsDetailsViewOutputProtocol: class {
     func requestImage(url:String)
     func requestData()
     func didTappedDitailsButton(url:String)
@@ -25,18 +25,18 @@ protocol NewsDitailsViewOutputProtocol: class {
 
 // MARK: - Interactor Contract
 
-protocol NewsDitailsInteractorProtocol: class {
+protocol NewsDetailsInteractorProtocol: class {
     func loadImage(urlString:String)
 }
 
 // MARK: - Interactor Output Contract
 
-protocol NewsDitailsInteractorOutputProtocol: class {
+protocol NewsDetailsInteractorOutputProtocol: class {
     func imageLoaded(imgData:Data)
 }
 
 // MARK: - Router Contract
 
-protocol NewsDitailsRouterProtocol: class {
+protocol NewsDetailsRouterProtocol: class {
     func openWebPage(urlStr:String)
 }

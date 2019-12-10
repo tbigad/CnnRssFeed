@@ -1,5 +1,5 @@
 //
-//  NewsDitailsRouter.swift
+//  NewsDeitailsRouter.swift
 //  CnnRssFeed
 //
 //  Created by Pavel N on 12/3/19.
@@ -9,7 +9,7 @@
 import Foundation
 import VIPERBase
 
-final class NewsDitailsRouter: VIPERRouter {
+final class NewsDetailsRouter: VIPERRouter {
 
     weak var viewController: UIViewController!
 
@@ -17,7 +17,7 @@ final class NewsDitailsRouter: VIPERRouter {
 
 // MARK: - NewsDitailsRouterProtocol
 
-extension NewsDitailsRouter: NewsDitailsRouterProtocol {
+extension NewsDetailsRouter: NewsDetailsRouterProtocol {
     func openWebPage(urlStr: String) {
         let vc = NewsWebViewBuilder.build(withUrl: urlStr)        
         pushModule(withView: vc)
