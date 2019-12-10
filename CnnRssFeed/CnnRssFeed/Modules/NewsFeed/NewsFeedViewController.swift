@@ -73,14 +73,21 @@ extension NewsFeedViewController: UITableViewDelegate, UITableViewDataSource {
         defer {
             self.previousScrollOffset = scrollView.contentOffset.y
         }
-        let scrollDiff = scrollView.contentOffset.y - self.previousScrollOffset
-        
+        let scrollDiff = scrollView.contentOffset.y - self.previousScrollOffset        
         
         if scrollDiff > 0 {
+            UIView.animate(withDuration: 1.0, animations: {
+                [weak self] in
+                self?.closeButton.alpha = 0.0
+            })
             if self.buttonConstraint.constant <= constraintMinimum{
                 self.buttonConstraint.constant += scrollDiff
             }
         } else {
+            UIView.animate(withDuration: 1.0, animations: {
+                [weak self] in
+                self?.closeButton.alpha = 1.0
+            })
             if self.buttonConstraint.constant >= constraintMaximum  {
                 self.buttonConstraint.constant += scrollDiff
             }
