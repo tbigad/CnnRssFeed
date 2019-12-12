@@ -1,5 +1,11 @@
 import Foundation
 
+
+enum Result<Value, Error: Swift.Error> {
+    case success(Value)
+    case failure(Error)
+}
+
 class AsyncOperation: Operation {
     private var _executing = false
     private var _finished = false

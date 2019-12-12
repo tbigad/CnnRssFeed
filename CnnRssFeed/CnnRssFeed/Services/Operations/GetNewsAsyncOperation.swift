@@ -43,7 +43,8 @@ class GetNewsAsyncOperation:AsyncOperation {
             case .error(let str):
                 self?.result = .fail(str)
             case .succed(let model):
-                self?.result = .succes(model)
+                let data = model.sorted()
+                self?.result = .succes(data)
             }
             self?.finish()
         }

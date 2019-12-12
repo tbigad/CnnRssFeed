@@ -8,7 +8,15 @@
 
 import UIKit
 
-struct NewsFeedItem {
+struct NewsFeedItem : Comparable {
+    static func < (lhs: NewsFeedItem, rhs: NewsFeedItem) -> Bool {
+        return lhs.pubDate > rhs.pubDate
+    }
+    
+    static func == (lhs: NewsFeedItem, rhs: NewsFeedItem) -> Bool {
+        return lhs.pubDate == rhs.pubDate
+    }
+    
     let title:String
     let description:String
     let link:String
@@ -22,10 +30,18 @@ struct NewsFeedItem {
         self.media = Media
         
         let dateFormatter = DateFormatter.RssPubDateDateFormat
-        guard let PubDate = dateFormatter.date(from: PubDate) else {
+        guard let date = dateFormatter.date(from: PubDate) else {
             pubDate = Date()
             return
         }
+        self.pubDate = date
+    }
+    
+    init(Title:String, Descripton:String, Link:String, PubDate:Date, Media:[String:(Int,Int)]) {
+        self.title = Title
+        self.description = Descripton
+        self.link = Link
+        self.media = Media
         self.pubDate = PubDate
     }
     
@@ -33,8 +49,7 @@ struct NewsFeedItem {
         let ret = self.media.filter({ $0.value.0 == $0.value.1 })
         if ret.isEmpty {
             return getSmallestMedia()
-        } else
-        {
+        } else {
             return ret.min(by: { a,b in a.value.0 < b.value.0 })
         }
     }

@@ -1,7 +1,9 @@
 import Foundation
 import CoreData
 
-class BaseSQLiteOperation: AsyncOperation {
+class BaseDBOperation: AsyncOperation {
+    let containerName = "NewsDataModel"
+    let modelEntityName = "NewsDataModel"
     
     override init() {
         super.init()
@@ -15,7 +17,7 @@ class BaseSQLiteOperation: AsyncOperation {
     var backgroundContext:NSManagedObjectContext!
     
     private func createContainer(completition: @escaping (NSPersistentContainer) -> () ) {
-        let container = NSPersistentContainer(name: "")
+        let container = NSPersistentContainer(name: containerName)
         container.loadPersistentStores(completionHandler: {_, error in
             guard error == nil else {fatalError("Failed to load store")}
             completition(container)
