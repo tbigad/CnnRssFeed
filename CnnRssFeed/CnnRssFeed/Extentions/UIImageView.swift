@@ -15,7 +15,7 @@ extension UIImageView {
         let request = URLRequest(url: url)
         if let data = cache.cachedResponse(for: request)?.data, let image = UIImage(data: data) {
             self?.setImageInMain(image: image)
-        } else {            
+        } else {
             self?.setImageInMain(image: placeholder)
             URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
                 if let data = data, let response = response, ((response as? HTTPURLResponse)?.statusCode ?? 500) < 300, let image = UIImage(data: data) {
@@ -24,11 +24,11 @@ extension UIImageView {
                     self?.setImageInMain(image: image)
                 }
             }).resume()
+            }
         }
     }
-    }
     
-    func setImageInMain(image:UIImage?){
+    private func setImageInMain(image:UIImage?){
         DispatchQueue.main.async {
             self.image = image
         }

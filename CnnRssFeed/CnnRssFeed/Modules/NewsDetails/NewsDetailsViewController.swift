@@ -28,9 +28,11 @@ final class NewsDetailsViewController: BaseViewController<NewsDetailsView>, VIPE
     func updateView() {
         let customView = view as? NewsDetailsView
         customView?.titleLabel.text = newsItem?.title
-        customView?.dateLabel.text = newsItem?.pubDate
         customView?.descriptionTextView.text = newsItem?.description
         customView?.ditailsButton.isHidden = newsItem?.link == nil
+        
+        let dateFormatter = DateFormatter.DateFormatWithHour
+        customView?.dateLabel.text = dateFormatter.string(from: newsItem!.pubDate)
     }
     
     @objc func didTappedDitailsButton(){
