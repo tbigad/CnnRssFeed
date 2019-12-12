@@ -31,8 +31,10 @@ final class NewsDetailsViewController: BaseViewController<NewsDetailsView>, VIPE
         customView?.descriptionTextView.text = newsItem?.description
         customView?.ditailsButton.isHidden = newsItem?.link == nil
         
-        let dateFormatter = DateFormatter.DateFormatWithHour
-        customView?.dateLabel.text = dateFormatter.string(from: newsItem!.pubDate)
+        guard let date = newsItem?.pubDate else {
+            return;
+        }
+        customView?.dateLabel.text = date.timestampString
     }
     
     @objc func didTappedDitailsButton(){
